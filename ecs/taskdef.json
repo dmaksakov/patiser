@@ -1,0 +1,35 @@
+{
+  "family": "patiser-frontend",
+
+  "volumes": [
+
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "{IMAGE}:{TAG}",
+      "essential": true,
+      "memory": 256,
+      "memoryReservation": 64,
+      "cpu": 128,
+      "mountPoints": [
+
+      ],
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 80
+        }
+      ],
+      "logConfiguration":{
+        "logDriver": "awslogs",
+        "options":{
+          "awslogs-group": "{LOG_GROUP}",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "patiser-frontend"
+        }
+
+      }
+    }
+  ]
+}
